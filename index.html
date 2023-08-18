@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Request</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 10px;
-        }
-        .form-container {
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        .center-content {
-            text-align: center;
-        }
-        .mt-minimal {
-            margin-top: 10px;
-        }
-        .scroll-box {  /* New class for scrollable box */
-            max-height: 100px;  /* Set a maximum height for the box */
-            overflow-y: auto;   /* Enable vertical scrolling */
-            padding: 15px;      /* Add some padding for aesthetics */
-            border: 1px solid #ccc; /* Add a border */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS file link -->
+
+    
 </head>
 <body>
     <div class="container">
 
         <!-- Region 1: Video Sales Letter -->
-        <div class="row mt-minimal">
-            <div class="col center-content">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/DX0VLsA3how" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div> 
+<!-- Region 1: Video Sales Letter -->
+<div class="row mt-minimal">
+    <div class="col center-content">
+        <div class="video-container" id="video-container">
+            <div id="player"></div>
+            <a href="https://www.example.com" target="_blank" class="video-overlay top-overlay" id="top-overlay">
+                <span class="overlay-text">Top Overlay Text</span>
+            </a>
+            <a href="https://www.example.com" target="_blank" class="video-overlay bottom-overlay" id="bottom-overlay">
+                <span class="overlay-text">Bottom Overlay Text</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
        <!-- Region 2: Image -->
 <div class="row mt-minimal">
     <div class="col center-content">
