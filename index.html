@@ -1,29 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="script.js"></script>
+    <!-- <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '315',
+            width: '560',
+            //videoId: 'DX0VLsA3how',
+           // videoId: 'ZK0MMnzbldg',//
+            videoId: 'rQb6DIq6D-U',
+            events: {
+            'onStateChange': onPlayerStateChange
+            }
+        });
+        }
+
+        function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            document.getElementById('top-overlay').classList.add('full-overlay');
+            document.getElementById('bottom-overlay').classList.add('full-overlay');
+        }
+        }
+    </script> -->
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Request</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- External CSS file link -->
+    
+    <style>
+        body {
+            background-color: #c1e6f0;
+            margin: 0;
+            padding: 10px;
+        }
+        .form-container {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .center-content {
+            text-align: center;
+        }
+        .mt-minimal {
+            margin-top: 10px;
+        }
+        .scroll-box {  /* New class for scrollable box */
+            max-height: 150px;  /* Set a maximum height for the box */
+            overflow-y: auto;   /* Enable vertical scrolling */
+            padding: 15px;      /* Add some padding for aesthetics */
+            border: 1px solid #ccc; /* Add a border */
+        }
 
+        .video-container {
+            position: relative;
+            width: 100%; /* Responsive width */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-overlay.full-overlay {
+            top: 0;
+            bottom: 0;
+            height: 100%;
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 15%; /* Covering only the bottom 1/4 of the video */
+            background: rgba(78, 131, 175, 0.9); /* You can adjust the overlay color and opacity */
+            cursor: pointer;
+            z-index: 10;
+        }
+        .overlay-image {
+            width: 50px; /* You can adjust the size */
+            height: 50px;
+        }
+
+        .overlay-text {
+            font-size: 16px; /* You can adjust the size */
+            color: #e9dbdb; /* You can adjust the color */
+        }
+
+
+        .top-overlay {
+            top: 0;
+            left: 0;
+        }
+
+        .bottom-overlay {
+            bottom: 0;
+            left: 0;
+        }
+
+        .video-container {
+            position: relative;
+        }
+        
+        .video-overlay.full-overlay {
+            top: 0;
+            bottom: 0;
+            height: 100%;
+        }
+        .play-button {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 40px solid #fff;
+            cursor: pointer;
+            z-index: 20;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .playing .play-button {
+            display: none; /* Hide play button when video is playing */
+        }
+        .play-button {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 40px solid #fff; /* Triangle shape */
+            cursor: pointer;
+            z-index: 20;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .playing .play-button {
+            display: none; /* Hide play button when video is playing */
+        }
+    </style>
     
 </head>
 <body>
     <div class="container">
-
         <!-- Region 1: Video Sales Letter -->
-<!-- Region 1: Video Sales Letter -->
-<div class="row mt-minimal">
-    <div class="col center-content">
-        <div class="video-container" id="video-container">
-            <div id="player"></div>
-            <a href="https://www.example.com" target="_blank" class="video-overlay top-overlay" id="top-overlay">
-                <span class="overlay-text">Top Overlay Text</span>
+        <div class="row mt-minimal">
+            <div class="col center-content">
+                <div class="video-container" id="video-container">
+                    <video id="player" width="560" height="315">
+                        <source src="vsl.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-button" id="play-button"></div> <!-- Custom play button -->
+                    
+            <a href="https://plrimporter.com" target="_self" class="video-overlay top-overlay" id="top-overlay">
+                <img src="plr-logo1.png" alt="PLRImporter.Com Logo" class="overlay-image">
+                <span class="overlay-text">Check out PLRImporter.Com</span>
             </a>
-            <a href="https://www.example.com" target="_blank" class="video-overlay bottom-overlay" id="bottom-overlay">
-                <span class="overlay-text">Bottom Overlay Text</span>
+            <a href="https://mtbn.net" target="_self" class="video-overlay bottom-overlay" id="bottom-overlay">
+                <span class="overlay-text">Get Great PLR Hosting at MTBN.NET</span>
             </a>
         </div>
     </div>
@@ -144,6 +294,26 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Custom JavaScript to control video playback -->
+        <script>
+            var videoContainer = document.getElementById('video-container');
+            var videoPlayer = document.getElementById('player');
+            var playButton = document.getElementById('play-button');
+    
+            playButton.addEventListener('click', function() {
+                if (videoPlayer.paused) {
+                    videoPlayer.play();
+                    videoContainer.classList.add('playing');
+                } else {
+                    videoPlayer.pause();
+                    videoContainer.classList.remove('playing');
+                }
+            });
+    
+            // Optional: Hide play button when video ends
+            videoPlayer.addEventListener('ended', function() {
+                videoContainer.classList.remove('playing');
+            });
+        </script>
 </body>
 </html>
-
